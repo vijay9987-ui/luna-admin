@@ -27,7 +27,7 @@ const Users = () => {
     const fetchUsers = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('https://luna-backend-1.onrender.com/api/users/users');
+        const response = await axios.get('http://194.164.148.244:4066/api/users/users');
         setUsers(response.data);
         setLoading(false);
       } catch (err) {
@@ -95,7 +95,7 @@ const Users = () => {
         userId = currentUser._id;
         
         // Update base user info
-        await axios.put(`https://luna-backend-1.onrender.com/api/users/setuser/${userId}`, {
+        await axios.put(`http://194.164.148.244:4066/api/users/setuser/${userId}`, {
           fullName: formData.fullName,
           mobileNumber: formData.mobileNumber,
           isAdmin: formData.isAdmin,
@@ -103,7 +103,7 @@ const Users = () => {
         });
 
         // Update profile data
-        await axios.put(`https://luna-backend-1.onrender.com/api/users/updateuser/${userId}`, {
+        await axios.put(`http://194.164.148.244:4066/api/users/updateuser/${userId}`, {
           firstName: formData.profile.firstName,
           lastName: formData.profile.lastName,
           gender: formData.profile.gender,
@@ -112,7 +112,7 @@ const Users = () => {
         });
       } else {
         // Register new user
-        const registerRes = await axios.post('https://luna-backend-1.onrender.com/api/users/register', {
+        const registerRes = await axios.post('http://194.164.148.244:4066/api/users/register', {
           fullName: `${formData.profile.firstName} ${formData.profile.lastName}`,
           email: formData.profile.email,
           mobileNumber: formData.mobileNumber,
@@ -123,7 +123,7 @@ const Users = () => {
         userId = registerRes.data.userId;
 
         // Create profile data
-        await axios.post(`https://luna-backend-1.onrender.com/api/users/user/createprofiledata/${userId}`, {
+        await axios.post(`http://194.164.148.244:4066/api/users/user/createprofiledata/${userId}`, {
           firstName: formData.profile.firstName,
           lastName: formData.profile.lastName,
           gender: formData.profile.gender,
@@ -133,14 +133,14 @@ const Users = () => {
 
         // Set admin status if needed
         if (formData.isAdmin) {
-          await axios.put(`https://luna-backend-1.onrender.com/api/users/setuser/${userId}`, {
+          await axios.put(`http://194.164.148.244:4066/api/users/setuser/${userId}`, {
             isAdmin: true
           });
         }
       }
 
       // Refresh user list
-      const { data } = await axios.get('https://luna-backend-1.onrender.com/api/users/users');
+      const { data } = await axios.get('http://194.164.148.244:4066/api/users/users');
       setUsers(data);
       setShowModal(false);
     } catch (err) {
@@ -153,7 +153,7 @@ const Users = () => {
   const handleDelete = async (userId) => {
     if (window.confirm('Are you sure you want to delete this user?')) {
       try {
-        await axios.delete(`https://luna-backend-1.onrender.com/api/users/delete/${userId}`);
+        await axios.delete(`http://194.164.148.244:4066/api/users/delete/${userId}`);
         setUsers(users.filter(user => user._id !== userId));
       } catch (err) {
         setError(err.response?.data?.error || 'Failed to delete user');
@@ -164,7 +164,7 @@ const Users = () => {
   // Open modal for editing
   const openEditModal = async (user) => {
     try {
-      const { data } = await axios.get(`https://luna-backend-1.onrender.com/api/users/getuser/${user._id}`);
+      const { data } = await axios.get(`http://194.164.148.244:4066/api/users/getuser/${user._id}`);
       
       setCurrentUser(user);
       setFormData({

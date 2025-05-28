@@ -8,8 +8,8 @@ const ProfileModal = ({ onClose }) => {
             <button type="button" className="btn-close" onClick={onClose}></button>
           </div>
           <div className="modal-body">
-            <p><strong>Name:</strong> Admin User</p>
-            <p><strong>Email:</strong> admin@example.com</p>
+            <p><strong>Name:</strong> Admin </p>
+            <p><strong>Email:</strong> admin@gmail.com</p>
           </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-secondary" onClick={onClose}>Close</button>

@@ -8,7 +8,7 @@ const SettingsModal = ({ onClose }) => {
             <button type="button" className="btn-close" onClick={onClose}></button>
           </div>
           <div className="modal-body">
-            <p>Change password, update preferences, etc.</p>
+            <p>Setting for Admin</p>
           </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-secondary" onClick={onClose}>Close</button>

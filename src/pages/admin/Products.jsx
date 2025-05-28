@@ -18,7 +18,7 @@ const initialProduct = {
   newImageFiles: [], // This will temporarily store file objects for new uploads
 };
 
-const API_BASE_URL = 'https://luna-backend-1.onrender.com/api/products';
+const API_BASE_URL = 'http://194.164.148.244:4066/api/products';
 
 const Products = () => {
   const [showModal, setShowModal] = useState(false);
@@ -238,7 +238,7 @@ const Products = () => {
                                   src={
                                     product.images?.[0]?.startsWith('http')
                                       ? product.images[0]
-                                      : `https://luna-backend-1.onrender.com${product.images?.[0]}`
+                                      : `http://194.164.148.244:4066${product.images?.[0]}`
                                   }
                                   alt={product.name}
                                   className="rounded me-3"
@@ -447,7 +447,7 @@ const Products = () => {
                         {currentProduct.images?.map((image, index) => (
                           <div key={`existing-${index}`} className="position-relative" style={{ width: '100px' }}>
                             <img
-                              src={image.startsWith('http') ? image : `https://luna-backend-1.onrender.com${image}`}
+                              src={image.startsWith('http') ? image : `http://194.164.148.244:4066${image}`}
                               alt={`Product ${index + 1}`}
                               className="img-thumbnail"
                               style={{ width: '100px', height: '100px', objectFit: 'cover' }}
