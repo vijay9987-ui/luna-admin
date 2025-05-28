@@ -20,7 +20,7 @@ const Orders = () => {
     const fetchOrders = async () => {
         setLoading(true);
         try {
-            const res = await axios.get(`http://194.164.148.244:4066/api/users/allorders`, {
+            const res = await axios.get(`https://luna-backend-1.onrender.com/api/users/allorders`, {
                 params: {
                     page: currentPage,
                     limit: ordersPerPage,
@@ -40,7 +40,7 @@ const Orders = () => {
 
     const updateOrderStatus = async (orderId, newStatus) => {
         try {
-            await axios.put(`http://194.164.148.244:4066/api/users/updateorderstatus/${orderId}`, {
+            await axios.put(`https://luna-backend-1.onrender.com/api/users/updateorderstatus/${orderId}`, {
                 orderStatus: newStatus
             });
             setOrders(orders.map(order =>
@@ -54,7 +54,7 @@ const Orders = () => {
 
     const updatePaymentStatus = async (orderId, newStatus) => {
         try {
-            await axios.put(`http://194.164.148.244:4066/api/users/updatepaymentstatus/${orderId}`, {
+            await axios.put(`https://luna-backend-1.onrender.com/api/users/updatepaymentstatus/${orderId}`, {
                 paymentStatus: newStatus
             });
             setOrders(orders.map(order =>

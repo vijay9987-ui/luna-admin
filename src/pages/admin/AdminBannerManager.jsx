@@ -10,7 +10,7 @@ const AdminBannerManager = () => {
   const fetchBanners = async () => {
     setIsLoading(true);
     try {
-      const res = await axios.get('http://194.164.148.244:4066/api/products/getbanners');
+      const res = await axios.get('https://luna-backend-1.onrender.com/api/products/getbanners');
       setBanners(res.data.banners);
       setMessage({ text: '', type: '' });
     } catch (err) {
@@ -43,7 +43,7 @@ const AdminBannerManager = () => {
 
     setIsLoading(true);
     try {
-      await axios.post('http://194.164.148.244:4066/api/products/uploadbanners', formData, {
+      await axios.post('https://luna-backend-1.onrender.com/api/products/uploadbanners', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setMessage({ text: 'Banners uploaded successfully!', type: 'success' });
@@ -62,7 +62,7 @@ const AdminBannerManager = () => {
 
     setIsLoading(true);
     try {
-      await axios.delete(`http://194.164.148.244:4066/api/products/deletebanner/${id}`);
+      await axios.delete(`https://luna-backend-1.onrender.com/api/products/deletebanner/${id}`);
       setMessage({ text: 'Banner deleted successfully', type: 'success' });
       fetchBanners();
     } catch (err) {
@@ -132,7 +132,7 @@ const AdminBannerManager = () => {
                       {banner.images.map((img, idx) => (
                         <div className="col-4" key={idx}>
                           <img
-                            src={`http://194.164.148.244:4066${img}`}
+                            src={`https://luna-backend-1.onrender.com${img}`}
                             alt={`Banner ${idx + 1}`}
                             className="img-fluid rounded shadow-sm"
                             style={{ 
